@@ -24,3 +24,5 @@
 18. 이메일 생성 :: git config --global user.email ~
 19. 보기 :: git config --global -l
 20. remote 끊기 :: git remote remove '이름'
+
+깃 업로드 순서 > storage area > commit > push
