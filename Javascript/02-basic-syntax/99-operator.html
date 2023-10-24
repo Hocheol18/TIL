@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 전위 연산자
+        let a = 3
+        const b = ++a
+        console.log(a, b) // 4, 4
+        // b는 증가된 이후의 a 값을 반환 받음 a 는 그냥 a++
+
+        // 후위 연산자
+        let x = 3
+        const y = x++
+        console.log(x, y) // 4 3
+        // y는 x가 1이 증가되기 전의 값을 할당받음.
+
+        // 일치 연산자 (===)
+        // 같은 객체를 가리키거나, 같은 타입이면서 같은 값인지를 비교함
+        // 엄격한 비교가 이루어짐.
+        console.log(1 === 1) // true
+        console.log('hello' === 'hello') // true
+        console.log('1' === 1) // false
+        console.log(0 === false) // false
+
+        // 동등 연산자(==)
+        // 같은 값으로 평가되는지 (암묵적 타입 변환으로 타입을 일치시킨 후 같은 값인지 비교함)
+        console.log(1 == 1) // true
+        console.log('hello' == 'hello') // true
+        console.log('1' == 1) // true
+        console.log(0 == false) // true
+
+    </script>
+</body>
+</html>
