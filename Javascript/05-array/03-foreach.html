@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 인자로 주어진 함수를 배열 요소 각각에 대해 실행
+    // 리턴값 없음.
+    
+    const names = ['Alice', 'Bella', 'Cathy',]
+
+    // 일반 함수
+    names.forEach(function (item, index, array) { // (안 부분이 callback 함수) 
+      console.log(`${item} / ${index} / ${array}`)
+    })
+
+    // 콜백 함수 :: 다른 함수에 인자로 전달되는 함수
+
+    // 화살표 함수
+    names.forEach((item, index, array) => {
+      console.log(`${item} / ${index} / ${array}`)
+    })
+  </script>
+</body>
+
+</html>

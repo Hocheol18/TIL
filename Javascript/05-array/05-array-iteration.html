@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    const names = ['Alice', 'Bella', 'Cathy',]
+
+    // for loop
+    // 배열의 인덱스를 이용하여 각 요소에 접근함
+    // break, continue 사용 가능
+    for (let idx = 0; idx < names.length; idx++) {
+      console.log(idx, names[idx])
+    }
+
+    // for...of
+    // 배열 요소에 바로 접근 가능
+    // break, continue 사용 가능
+    for (const name of names) {
+      console.log(name)
+    }
+
+    // forEach
+    // callback 함수를 이용, 각 요소 조작함
+    // break, continue 불가능
+    names.forEach((name, idx) => {
+      console.log(idx, name)
+    })
+  </script>
+</body>
+
+</html>

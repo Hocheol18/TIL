@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    const names = ['Alice', 'Bella', 'Cathy',]
+
+    // push/pop > 맨 오른쪽
+    // shift, unshift > 맨 왼쪽
+
+    // pop
+    console.log(names.pop()) // Cathy
+    console.log(names) // ['Alice', 'Bella']
+
+    // push
+    names.push('Dan')
+    console.log(names) // ['Alice', 'Bella', 'Dan']
+
+    // shift (요소 제거 및 반환)
+    console.log(names.shift()) // Alice
+    console.log(names) // ['Bella', 'Dan']
+
+    // unshift (요소 추가)
+    names.unshift('Eric')
+    console.log(names) // ['Eric', 'Bella', 'Dan']
+
+  </script>
+</body>
+
+</html>
