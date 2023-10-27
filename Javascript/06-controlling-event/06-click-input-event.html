@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .blue {
+      color: blue;
+    }
+  </style>
+</head>
+
+<body>
+  <h1></h1>
+  <button id="btn">클릭</button>
+  <input type="text" id="text-input">
+
+  <script>
+    // input 구현
+    const inputtag = document.querySelector('#text-input')
+    const h1tag = document.querySelector('h1')
+    const inputfunction = function (e) {
+      const return_value = this.value
+      h1tag.textContent = return_value
+    }
+    inputtag.addEventListener('input', inputfunction)
+
+    // click 구현
+    const clicktag = document.querySelector('#btn')
+    const clickevent = function() {
+      h1tag.classList.toggle('blue')
+    }
+    clicktag.addEventListener('click', clickevent)
+
+
+  </script>
+</body>
+
+</html>
