@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <button>냥냥펀치</button>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script>
+    const btn = document.querySelector('button')
+    const URL = 'https://api.thecatapi.com/v1/images/search/'
+    const callback = function () {
+        const response = axios({
+        method: 'get',
+        url: URL
+      })
+
+      // 첫 번째 then은 필요한 img url만 구하기
+      .then((response) => {
+        const imgUrl = response.data[0].url
+        return imgUrl
+      })
+      // 첫 번째 return imgUrl이 리턴 값을 반환할 때만 밑에 코드가 실행됨.
+      .then((imgUrl) => {
+        const imgTag = document.createElement('img')
+        imgTag.setAttribute('src', imgUrl)
+        document.body.appendChild(imgTag)
+      })
+      // 즉 순서 부여됨.
+      .catch((error) => {
+        console.log(error)
+      })
+
+    }
+
+    // promise 방식 >> 순서 부여
+    // work1()
+    //   .then((result1) => {
+    //     return result2
+    //   })
+    //   .then((result2) => {
+    //     return result3
+    //   })
+    //   .then((result3) => {
+    //     return result4
+    //   })
+    //   .catch((error) => {
+    //     console.log("ERROR")
+    //   })
+
+  </script>
+</body>
+
+</html>
