@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app"></div>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script>
+    // 반응형 상태(데이터)를 선언하는 함수
+    // ref()
+    const { createApp, ref } = Vue
+
+    // 모든 Vue 어플리케이션은 createApp 함수로 새 Application instance를 생성하는 것으로 시작
+    // ({}) => 객체 생성
+    const app = createApp({
+      setup() {
+        const message = ref('hello vue!') // ref >> 객체
+        return {
+          'message' : message
+        }
+      }
+    })
+    
+    // 컨테이너 요소에 어플리케이션 인스턴스 연결 >> mount()는 한 번만 호출 가능.
+    app.mount('#app')
+
+  </script>
+</body>
+
+</html>

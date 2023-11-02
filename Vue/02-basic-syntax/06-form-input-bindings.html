@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <p>{{showText}}</p>
+    <input type="text" @input="OnInput" :value="showText">
+    <p>{{showText2}}</p>
+    <input type="text" v-model="showText2">
+  </div>
+
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script>
+    const { createApp, ref } = Vue
+
+    const app = createApp({
+      setup() {
+        const showText = ref('')
+        const showText2 = ref('')
+        const OnInput = function (e) {
+          showText.value = e.currentTarget.value
+        }
+        return {
+          showText,
+          OnInput,
+          showText2
+        }
+      }
+    })
+
+    app.mount('#app')
+  </script>
+</body>
+
+</html>

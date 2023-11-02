@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .crimson {
+      color: crimson;
+    }
+
+    .text-primary {
+      color: blue;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <!-- Binding to Objects -->
+    <div :class="{ crimson: isActive }">Text</div>
+    <div class="static" :class="{ crimson : isActive, 'text-primary' : another }">Text</div>
+    <div class="static" :class="obj">Text</div>
+
+    <!-- Binding to Arrays -->
+    <div :class="[activeClass, infoClass]">Text</div>
+    <div :class="[{activeClass, infoClass}, infoClass]">Text</div>
+  </div>
+
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script>
+    const { createApp, ref } = Vue
+
+    const app = createApp({
+      setup() {
+        const isActive = ref(true)
+        const another = ref(true)
+        const obj = ref(
+          { crimson : isActive, 'text-primary' : another }
+        )
+        const activeClass = ref('active')
+        const infoClass = ref('text-primary')
+        return {
+          isActive,
+          another,
+          obj,
+          activeClass,
+          infoClass
+        }
+      }
+    })
+
+    app.mount('#app')
+  </script>
+</body>
+
+</html>
