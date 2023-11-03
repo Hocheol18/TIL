@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .done {
+        text-decoration: line-through;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <h1>할 일 목록</h1>
+        <!-- vue 는 렌더링 시 "변경된 부분만" 최소한으로 re-rendering -->
+        <!-- 즉, 내가 지금 당장 필요 없는 부분은 신경쓰지 않는다 -->
+        <div>
+            <input type="text" v-model="inputText" @keyup.enter="addTodo">
+            <button @click="addTodo">추가</button>
+            <ul>
+                <!-- <li v-for="(todo, index) in todos" :key="todo.id" @click="toggleTodoStatus(todo)" :class="{'completed' : todo.completed}">
+                    {{ index }} : {{ todo.text }}
+                    <button @click="delTodo(index)">삭제</button>
+                </li> -->
+                <li v-for="(todo, index) in TextList">
+                    <input type="checkbox" v-model="todo.done">
+                    <span :class="{ done: todo.done }" style="margin-right:5px">{{ todo.text }}</span>
+                    <button @click="DeleteTodo(index)"> 삭제 </button>
+                </li>
+                <button v-if="todoCount" @click="deleteCompleteTodos">완료된 일 삭제</button>
+                <!-- <button v-if="TextList.length" @click="deleteCompleteTodos">완료된 일 삭제</button> -->
+            </ul>
+        </div>
+        
+    </div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="Script.js"></script>
+</body>
+</html>

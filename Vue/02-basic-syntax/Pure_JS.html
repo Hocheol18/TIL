@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>   
+    </style>
+</head>
+<body>
+    <h1>할일 목록</h1>
+    <input id='name'>
+    <button id="button">추가</button>
+
+    <script>
+        delete_button = document.querySelector('li')
+        function buttonFunc() {
+            const text = document.getElementById('name')
+            if (text.value !== '') {
+            const button = document.getElementById('button')
+            const another_li = document.createElement('li')
+
+            const check_box = document.createElement('checkbox')
+            const new_button = document.createElement('button')
+            new_button.innerText = '삭제'
+
+            const checkbox = document.createElement('input')
+            checkbox.type = 'checkbox'
+            
+            checkbox.addEventListener('change', () => {
+            if(checkbox.checked){
+              li.style.textDecoration = 'line-through'
+            } else {
+              li.style.textDecoration = ''
+            }
+            })
+
+            new_button.addEventListener('click', () => {
+                new_button.parentNode.remove()
+            })
+            
+            another_li.innerText = text.value
+            another_li.appendChild(checkbox)
+            another_li.appendChild(new_button)
+            document.body.appendChild(another_li)
+            document.getElementById('name').value = ''
+            }
+        }
+        
+        button.addEventListener('click', buttonFunc)
+        
+        
+        
+    </script>
+</body>
+</html>
