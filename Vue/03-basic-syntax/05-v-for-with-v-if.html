@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <!-- [Bad] v-for with v-if -->
+    <!-- 동일 요소에 v-for와 v-if를 함께 사용하지 않는다. -->
+    <ul>
+      <!-- <li v-for="todo in todos" v-if="!todo.isComplete" :key="todo.id">
+        {{ todo.name}} -->
+      </li>
+    </ul>
+
+    <!-- [Good] v-for with v-if & computed-->
+    <ul>
+      <li v-for="todo in completeTodos" :key="todo.id">
+        {{ todo.name }}
+      </li>
+    </ul>
+
+    <!-- [Good] v-for with v-if & template-->
+    <ul>
+      <!-- 처음에 for 문장 돌고 나중에 if 문 판별 -->
+      <!-- 위치 변경 -->
+      <template v-for="todo in todos" :key="todo.id">
+        <li v-if="!todo.isComplete">
+          {{ todo.name }}
+        </li>
+      </template>
+    </ul>
+
+
+  </div>
+
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script>
+    const { createApp, ref, computed } = Vue
+
+    const app = createApp({
+      setup() {
+        let id = 0
+
+        const todos = ref([
+          { id: id++, name: '복습', isComplete: true },
+          { id: id++, name: '예습', isComplete: false },
+          { id: id++, name: '저녁식사', isComplete: true },
+          { id: id++, name: '노래방', isComplete: false }
+        ])
+        
+        // 미리 배열을 만들고 (계산하고) 출력.
+        const completeTodos = computed(() => {
+          return todos.value.filter((todo) => !todo.isComplete)
+        })
+
+        return {
+          todos,
+          completeTodos
+        }
+      }
+    })
+
+    app.mount('#app')
+  </script>
+</body>
+
+</html>
